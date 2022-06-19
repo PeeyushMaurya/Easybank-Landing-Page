@@ -1,0 +1,84 @@
+.hero {
+    background-color: $veryLightGray;
+    
+    .container{
+        @include breakpoint-up(large){
+            display: flex;
+            align-items: center;
+    }
+    
+    }
+    &__img {
+        position: relative;
+        background-image: url('/images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+        
+        @include breakpoint-up(medium){
+            min-height: 25rem;
+            background-position: center 60%;
+        }
+
+        @include breakpoint-up(large){
+            flex: 3;
+            order: 2;
+            height: 100%;
+            min-height: 41rem;
+            background-image: none;
+            //background-image: url('/images/bg-intro-desktop.svg');
+            //background-position: left center;
+        }
+
+        &::before {
+
+            @include breakpoint-up(large){
+                width: 160%;
+                background-size: 108%;
+                background-position: 0% 95%;
+                content: "";
+                height: 100%;
+                position: absolute;
+                background-image: url('/images/bg-intro-desktop.svg');
+                background-repeat: no-repeat;
+                background-position: center bottom;
+            }
+        }
+
+        &::after {
+            @include breakpoint-up(medium){
+                background-size: 52%;    
+            }
+
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-image: url('/images/image-mockups.png');
+            background-size: 96%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+
+            @include breakpoint-up(large){
+                width:  120%;
+                height: 122%;
+                background-size: 94%;
+                background-repeat: no-repeat;
+                background-position: center 150%;
+                left: 22%
+            }
+        }
+    }
+
+    &__txt {
+
+        text-align: center;
+
+        @include breakpoint-up(large){
+            flex: 2;
+            order: 1;
+            text-align: left;
+        }
+    }
+}
